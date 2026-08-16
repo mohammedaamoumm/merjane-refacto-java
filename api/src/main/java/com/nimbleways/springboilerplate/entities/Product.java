@@ -24,8 +24,16 @@ public class Product {
     @Column(name = "available")
     private Integer available;
 
+    // AVANT (code original)
+    // @Column(name = "type")
+    // private String type;
+
+    // APRÈS (refactoré)
     @Column(name = "type")
-    private String type;
+    @Enumerated(EnumType.STRING)
+    @SuppressWarnings("unused")
+    private ProductType type;
+
 
     @Column(name = "name")
     private String name;
